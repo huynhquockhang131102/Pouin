@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Câu Lạc Bộ Công Nghệ Kinh Tế</title>
+    <style>
+        :root {
+            --main-blue: #175185;
+            --blue-bg: #e0f0ff;
+            --light-blue: #d1eaff;
+            --text-blue: #175185;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--blue-bg);
+            margin: 0;
+            padding: 0;
+            color: var(--text-blue);
+        }
+        header {
+            background: var(--main-blue);
+            color: white;
+            padding: 30px 0 15px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            margin: 32px auto;
+            background: var(--light-blue);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(23,81,133,0.08);
+            padding: 24px;
+        }
+        h1 {
+            margin-top: 0;
+            letter-spacing: 1px;
+        }
+        .event {
+            border-bottom: 1px solid #b7d3ea;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+        }
+        .event:last-child {
+            border-bottom: none;
+        }
+        .event-title {
+            color: var(--main-blue);
+            font-size: 1.2em;
+            margin-bottom: 4px;
+        }
+        .event-date {
+            color: #3171b0;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        .event-content {
+            color: #175185;
+        }
+        .no-events {
+            color: #3171b0;
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 32px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin: 12px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog Câu Lạc Bộ Công Nghệ Kinh Tế</h1>
+        <p>Thông báo sự kiện & hoạt động mới nhất</p>
+    </header>
+    <div class="container">
+        <div class="no-events">
+            Hiện chưa có sự kiện nào được đăng tải.
+        </div>
+        <!-- Bạn có thể thêm các sự kiện mới ở đây -->
+    </div>
+</body>
+</html>
