@@ -3,288 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VÉNUS - Khơi Dậy Vẻ Đẹp Của Bạn</title>
-    
+    <title>VÉNUS - Cửa Hàng Trực Tuyến</title>
     <style>
-        /* TỔNG THỂ */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #FFF0F5; /* Nền trắng hồng nhạt */
-            color: #333;
-        }
-
-        /* 1. THANH MENU (Cố định ở trên cùng) */
-        header {
-            background-color: #FF69B4; /* Hồng đậm */
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
-        }
-
-        .logo {
-            color: white;
-            font-size: 28px;
-            font-weight: 900;
-            text-decoration: none;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .menu a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .menu a:hover {
-            color: #FFE4E1;
-        }
-
-        .auth-buttons button {
-            background-color: white;
-            color: #FF69B4;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-left: 10px;
-            transition: 0.3s;
-        }
-
-        .auth-buttons button:hover {
-            background-color: #FFE4E1;
-        }
-
-        /* 2. BANNER QUẢNG CÁO */
-        .banner-container {
-            width: 100%;
-            height: 450px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            transition: background-image 0.8s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .banner-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 105, 180, 0.35); 
-            z-index: 1;
-        }
-
-        .banner-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .banner-content h1 {
-            font-size: 54px;
-            margin: 0 0 10px 0;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            text-transform: uppercase;
-        }
-
-        .banner-content p {
-            font-size: 22px;
-            margin-bottom: 25px;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .btn-shop-now {
-            background-color: white;
-            color: #FF1493;
-            padding: 12px 35px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .btn-shop-now:hover {
-            background-color: #FF1493;
-            color: white;
-        }
-
-        /* 3. KHU VỰC SẢN PHẨM NỔI BẬT */
-        .section-title {
-            text-align: center;
-            color: #FF1493;
-            font-size: 32px;
-            margin: 50px 0 30px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            padding: 0 40px;
-            max-width: 1200px;
-            margin: 0 auto 60px auto;
-        }
-
-        .product-card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
-        }
-
-        .product-img {
-            width: 100%;
-            height: 250px;
-            background-color: #FFE4E1;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FF69B4;
-            font-weight: bold;
-            font-size: 18px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .product-card h3 {
-            margin: 10px 0;
-            color: #333;
-            font-size: 18px;
-        }
-
-        .product-price {
-            color: #FF1493;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .btn-add-cart {
-            background-color: #FF69B4;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 14px;
-            transition: 0.3s;
-        }
+        /* TỔNG THỂ & MÀU SẮC */
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #FFF0F5; color: #333; }
         
-        .btn-add-cart:hover {
-            background-color: #FF1493;
-        }
+        /* HEADER & MENU */
+        header { background-color: #FF69B4; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2); }
+        .logo { color: white; font-size: 28px; font-weight: 900; text-decoration: none; letter-spacing: 2px; }
+        .menu a { color: white; text-decoration: none; margin: 0 15px; font-weight: 600; text-transform: uppercase; font-size: 14px; }
+        
+        /* CỤM NÚT HEADER (AUTH & CART) */
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .btn-header { background-color: white; color: #FF69B4; border: none; padding: 8px 18px; border-radius: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-header:hover { background-color: #FFE4E1; }
+        #user-greeting { color: white; font-weight: bold; display: none; }
+        #cart-btn { position: relative; }
+        #cart-count { position: absolute; top: -5px; right: -5px; background: #FF1493; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; }
 
-        /* 4. FORM ĐĂNG KÝ */
-        .register-section {
-            background-color: white;
-            max-width: 600px;
-            margin: 0 auto 60px auto;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.15);
-        }
+        /* SẢN PHẨM */
+        .section-title { text-align: center; color: #FF1493; font-size: 32px; margin: 50px 0 30px 0; text-transform: uppercase; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; padding: 0 40px; max-width: 1200px; margin: 0 auto 60px auto; }
+        .product-card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1); }
+        .product-img { width: 100%; height: 250px; background-color: #FFE4E1; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #FF69B4; font-weight: bold; background-size: cover; background-position: center; }
+        .product-price { color: #FF1493; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+        .btn-add-cart { background-color: #FF69B4; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        .btn-add-cart:hover { background-color: #FF1493; }
 
-        .form-group {
-            margin-bottom: 18px;
-            display: flex;
-            flex-direction: column;
-        }
+        /* AUTH SECTION (ĐĂNG KÝ / ĐĂNG NHẬP) */
+        .auth-container { max-width: 500px; margin: 0 auto 60px auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(255, 105, 180, 0.15); }
+        .auth-tabs { display: flex; justify-content: space-around; margin-bottom: 20px; border-bottom: 2px solid #FFE4E1; padding-bottom: 10px; }
+        .auth-tabs span { cursor: pointer; font-weight: bold; color: #aaa; font-size: 18px; }
+        .auth-tabs span.active { color: #FF1493; border-bottom: 2px solid #FF1493; padding-bottom: 10px; margin-bottom: -12px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #555; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #FFC0CB; border-radius: 6px; box-sizing: border-box; }
+        .btn-submit { width: 100%; background-color: #FF1493; color: white; padding: 12px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        #login-form { display: none; } /* Ẩn form đăng nhập mặc định */
 
-        .form-group label {
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #555;
-        }
+        /* CART MODAL (GIỎ HÀNG & THANH TOÁN) */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center; }
+        .cart-modal { background: white; width: 90%; max-width: 600px; padding: 30px; border-radius: 15px; max-height: 80vh; overflow-y: auto; }
+        .cart-modal h2 { color: #FF1493; margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .cart-item { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 10px 0; }
+        .cart-total { text-align: right; font-size: 20px; font-weight: bold; color: #FF1493; margin: 20px 0; }
+        .btn-close { background: #ccc; color: #333; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .btn-checkout { background: #FF1493; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; float: right; }
 
-        .form-group input {
-            padding: 14px;
-            border: 1px solid #FFC0CB;
-            border-radius: 8px;
-            font-size: 15px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        .form-group input:focus {
-            border-color: #FF1493;
-            box-shadow: 0 0 5px rgba(255, 20, 147, 0.2);
-        }
-
-        .btn-submit {
-            width: 100%;
-            background-color: #FF1493;
-            color: white;
-            padding: 16px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .btn-submit:hover {
-            background-color: #C71585;
-        }
-
-        #success-message {
-            display: none;
-            background-color: #d4edda;
-            color: #155724;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #c3e6cb;
-        }
-
-        /* 5. FOOTER */
-        footer {
-            background-color: #FF69B4;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 40px;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
+        /* THÔNG BÁO */
+        .toast { display: none; position: fixed; bottom: 20px; right: 20px; background: #4CAF50; color: white; padding: 15px 25px; border-radius: 8px; font-weight: bold; z-index: 3000; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
@@ -294,154 +61,247 @@
         <a href="#" class="logo">VÉNUS</a>
         <nav class="menu">
             <a href="#">Trang chủ</a>
-            <a href="#">Thời trang</a>
-            <a href="#">Mỹ phẩm</a>
-            <a href="#">Bộ sưu tập mới</a>
+            <a href="#products">Sản phẩm</a>
+            <a href="#auth-section">Tài khoản</a>
         </nav>
-        <div class="auth-buttons">
-            <button>Đăng nhập</button>
-            <button onclick="document.getElementById('register').scrollIntoView({behavior: 'smooth'})">Đăng ký</button>
+        <div class="header-actions">
+            <span id="user-greeting">Xin chào, Khách</span>
+            <button id="btn-logout" class="btn-header" style="display: none;" onclick="logout()">Đăng xuất</button>
+            <button id="cart-btn" class="btn-header" onclick="openCart()">
+                Giỏ hàng <span id="cart-count">0</span>
+            </button>
         </div>
     </header>
 
-    <!-- 2. BANNER SLIDER -->
-    <section class="banner-container" id="main-banner">
-        <div class="banner-overlay"></div>
-        <div class="banner-content">
-            <h1 id="banner-title">Bộ Sưu Tập VÉNUS</h1>
-            <p id="banner-desc">Đánh thức vẻ đẹp tiềm ẩn của phái nữ</p>
-            <a href="#" class="btn-shop-now">Khám phá ngay</a>
-        </div>
-    </section>
-
-    <!-- 3. DANH SÁCH SẢN PHẨM VÉNUS -->
-    <h2 class="section-title">Sản Phẩm Vénus Nổi Bật</h2>
+    <!-- 2. DANH SÁCH SẢN PHẨM -->
+    <h2 class="section-title" id="products">Sản Phẩm Vénus Nổi Bật</h2>
     <section class="products-grid">
         <div class="product-card">
-            <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=80'); color: transparent;">Váy Dạ Hội Vénus</div>
-            <h3>Váy Dạ Hội Vénus Thượng Lưu</h3>
+            <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=80');"></div>
+            <h3>Váy Dạ Hội Vénus</h3>
             <div class="product-price">1.250.000 đ</div>
-            <button class="btn-add-cart">Thêm vào giỏ</button>
+            <button class="btn-add-cart" onclick="addToCart('Váy Dạ Hội Vénus', 1250000)">Thêm vào giỏ</button>
         </div>
         <div class="product-card">
-            <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=500&q=80'); color: transparent;">Túi Xách Vénus</div>
-            <h3>Túi Xách Vénus Signature</h3>
+            <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=500&q=80');"></div>
+            <h3>Túi Xách Vénus</h3>
             <div class="product-price">2.450.000 đ</div>
-            <button class="btn-add-cart">Thêm vào giỏ</button>
+            <button class="btn-add-cart" onclick="addToCart('Túi Xách Vénus', 2450000)">Thêm vào giỏ</button>
         </div>
         <div class="product-card">
-            <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80'); color: transparent;">Son Môi Vénus</div>
-            <h3>Son Môi Vénus Velvet Matte</h3>
+            <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80');"></div>
+            <h3>Son Môi Vénus</h3>
             <div class="product-price">450.000 đ</div>
-            <button class="btn-add-cart">Thêm vào giỏ</button>
-        </div>
-        <div class="product-card">
-            <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=500&q=80'); color: transparent;">Nước Hoa Vénus</div>
-            <h3>Nước Hoa Vénus L'amour</h3>
-            <div class="product-price">1.850.000 đ</div>
-            <button class="btn-add-cart">Thêm vào giỏ</button>
+            <button class="btn-add-cart" onclick="addToCart('Son Môi Vénus', 450000)">Thêm vào giỏ</button>
         </div>
     </section>
 
-    <!-- 4. KHU VỰC ĐĂNG KÝ -->
-    <h2 class="section-title" id="register">Trở Thành Thành Viên Vénus</h2>
-    <section class="register-section">
-        <form id="registerForm">
-            <div class="form-group">
-                <label>Họ và tên</label>
-                <input type="text" id="fullname" placeholder="Ví dụ: Huỳnh Quốc Khang" required>
-            </div>
-            
-            <div class="form-group">
-                <label>Ngày tháng năm sinh</label>
-                <input type="date" id="dob" value="1998-02-11" required>
-            </div>
+    <!-- 3. KHU VỰC TÀI KHOẢN (ĐĂNG KÝ & ĐĂNG NHẬP) -->
+    <h2 class="section-title" id="auth-section">Thành Viên Vénus</h2>
+    <div class="auth-container" id="auth-box">
+        <div class="auth-tabs">
+            <span id="tab-register" class="active" onclick="switchTab('register')">Đăng Ký</span>
+            <span id="tab-login" onclick="switchTab('login')">Đăng Nhập</span>
+        </div>
 
-            <div class="form-group">
-                <label>Số điện thoại</label>
-                <input type="tel" id="phone" placeholder="Nhập số điện thoại" required>
-            </div>
-
-            <div class="form-group">
-                <label>Gmail</label>
-                <input type="email" id="email" placeholder="example@gmail.com" required>
-            </div>
-
-            <div class="form-group">
-                <label>Địa chỉ giao hàng</label>
-                <input type="text" id="address" placeholder="Nhập địa chỉ nhà, phường/xã, quận/huyện..." required>
-            </div>
-
+        <!-- Form Đăng Ký -->
+        <form id="register-form" onsubmit="registerUser(event)">
+            <div class="form-group"><label>Họ và tên</label><input type="text" id="reg-name" placeholder="Ví dụ: Huỳnh Quốc Khang" required></div>
+            <div class="form-group"><label>Ngày tháng năm sinh</label><input type="date" id="reg-dob" value="1998-02-11" required></div>
+            <div class="form-group"><label>Số điện thoại (Dùng làm Tài khoản)</label><input type="tel" id="reg-phone" placeholder="Nhập SĐT của bạn" required></div>
+            <div class="form-group"><label>Mật khẩu</label><input type="password" id="reg-pass" placeholder="Tạo mật khẩu" required></div>
             <button type="submit" class="btn-submit">Hoàn Tất Đăng Ký</button>
         </form>
 
-        <div id="success-message"></div>
-    </section>
+        <!-- Form Đăng Nhập -->
+        <form id="login-form" onsubmit="loginUser(event)">
+            <div class="form-group"><label>Số điện thoại</label><input type="tel" id="login-phone" placeholder="Nhập SĐT đã đăng ký" required></div>
+            <div class="form-group"><label>Mật khẩu</label><input type="password" id="login-pass" placeholder="Nhập mật khẩu" required></div>
+            <button type="submit" class="btn-submit">Đăng Nhập</button>
+        </form>
+    </div>
 
-    <!-- 5. FOOTER -->
-    <footer>
-        <p>&copy; 2026 VÉNUS. Tôn vinh vẻ đẹp phái nữ.</p>
-    </footer>
+    <!-- 4. MODAL GIỎ HÀNG & THANH TOÁN -->
+    <div class="modal-overlay" id="cart-modal">
+        <div class="cart-modal">
+            <h2>Giỏ Hàng Của Bạn</h2>
+            <div id="cart-items-container">
+                <!-- Sản phẩm sẽ được thêm bằng Javascript vào đây -->
+            </div>
+            <div class="cart-total">Tổng tiền: <span id="cart-total-price">0</span> đ</div>
+            <button class="btn-close" onclick="closeCart()">Đóng</button>
+            <button class="btn-checkout" onclick="checkout()">Tiến Hành Thanh Toán</button>
+        </div>
+    </div>
 
-    <!-- JAVASCRIPT -->
+    <!-- HỘP THOẠI THÔNG BÁO -->
+    <div id="toast" class="toast">Thành công!</div>
+
+    <!-- 5. JAVASCRIPT: BỘ NÃO CỦA TRANG WEB -->
     <script>
-        // --- LOGIC BANNER SLIDER ---
-        const banners = [
-            {
-                image: "url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80')",
-                title: "Bộ Sưu Tập VÉNUS",
-                desc: "Đánh thức vẻ đẹp tiềm ẩn của phái nữ"
-            },
-            {
-                image: "url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80')",
-                title: "Tinh Hoa Thời Trang",
-                desc: "Phong cách thanh lịch, tỏa sáng mọi góc nhìn"
-            },
-            {
-                image: "url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80')",
-                title: "VÉNUS Beauty",
-                desc: "Rạng rỡ mỗi ngày với deal độc quyền"
-            }
-        ];
+        // --- QUẢN LÝ DỮ LIỆU TỪ LOCAL STORAGE ---
+        let users = JSON.parse(localStorage.getItem('venus_users')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('venus_currentUser')) || null;
+        let cart = JSON.parse(localStorage.getItem('venus_cart')) || [];
 
-        let currentBanner = 0;
-        const bannerElement = document.getElementById('main-banner');
-        const titleElement = document.getElementById('banner-title');
-        const descElement = document.getElementById('banner-desc');
+        // Chạy ngay khi load trang
+        updateUI();
 
-        function changeBanner() {
-            currentBanner = (currentBanner + 1) % banners.length;
-            bannerElement.style.backgroundImage = banners[currentBanner].image;
-            titleElement.innerText = banners[currentBanner].title;
-            descElement.innerText = banners[currentBanner].desc;
+        // --- CÁC HÀM TIỆN ÍCH ---
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 3000);
         }
 
-        bannerElement.style.backgroundImage = banners[0].image;
-        setInterval(changeBanner, 4500);
+        // Định dạng tiền tệ VNĐ
+        function formatMoney(amount) {
+            return amount.toLocaleString('vi-VN');
+        }
 
-        // --- LOGIC FORM ĐĂNG KÝ ---
-        const form = document.getElementById('registerForm');
-        const messageBox = document.getElementById('success-message');
+        // Cập nhật giao diện theo trạng thái đăng nhập & giỏ hàng
+        function updateUI() {
+            // Cập nhật số lượng giỏ hàng
+            document.getElementById('cart-count').innerText = cart.length;
 
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); 
+            // Kiểm tra trạng thái đăng nhập
+            if (currentUser) {
+                document.getElementById('user-greeting').innerText = `Xin chào, ${currentUser.name}`;
+                document.getElementById('user-greeting').style.display = 'inline';
+                document.getElementById('btn-logout').style.display = 'inline';
+                document.getElementById('auth-box').style.display = 'none'; // Ẩn khu vực đăng nhập/đăng ký
+            } else {
+                document.getElementById('user-greeting').style.display = 'none';
+                document.getElementById('btn-logout').style.display = 'none';
+                document.getElementById('auth-box').style.display = 'block';
+            }
+        }
 
-            const fullName = document.getElementById('fullname').value;
-            const phone = document.getElementById('phone').value;
+        // --- LUỒNG 1: ĐĂNG KÝ / ĐĂNG NHẬP ---
+        function switchTab(tab) {
+            document.getElementById('tab-register').classList.remove('active');
+            document.getElementById('tab-login').classList.remove('active');
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'none';
 
-            if(phone.length < 10) {
-                alert("Vui lòng nhập số điện thoại hợp lệ!");
+            document.getElementById(`tab-${tab}`).classList.add('active');
+            document.getElementById(`${tab}-form`).style.display = 'block';
+        }
+
+        function registerUser(e) {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            const phone = document.getElementById('reg-phone').value;
+            const pass = document.getElementById('reg-pass').value;
+
+            // Kiểm tra SĐT đã tồn tại chưa
+            const exists = users.find(u => u.phone === phone);
+            if(exists) {
+                alert("Số điện thoại này đã được đăng ký!");
                 return;
             }
 
-            messageBox.style.display = 'block';
-            messageBox.innerHTML = `Tuyệt vời! Chào mừng <strong>${fullName}</strong> đã gia nhập thế giới của VÉNUS.`;
+            // Lưu người dùng mới
+            const newUser = { name, phone, pass };
+            users.push(newUser);
+            localStorage.setItem('venus_users', JSON.stringify(users));
             
-            messageBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            form.reset(); 
-        });
-    </script>
+            showToast("Đăng ký thành công! Vui lòng đăng nhập.");
+            switchTab('login');
+            document.getElementById('register-form').reset();
+        }
 
+        function loginUser(e) {
+            e.preventDefault();
+            const phone = document.getElementById('login-phone').value;
+            const pass = document.getElementById('login-pass').value;
+
+            // Kiểm tra thông tin
+            const user = users.find(u => u.phone === phone && u.pass === pass);
+            if(user) {
+                currentUser = user;
+                localStorage.setItem('venus_currentUser', JSON.stringify(currentUser));
+                showToast(`Chào mừng ${user.name} trở lại!`);
+                updateUI();
+                document.getElementById('login-form').reset();
+            } else {
+                alert("Sai số điện thoại hoặc mật khẩu!");
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('venus_currentUser');
+            showToast("Đã đăng xuất thành công!");
+            updateUI();
+        }
+
+        // --- LUỒNG 2: GIỎ HÀNG ---
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            localStorage.setItem('venus_cart', JSON.stringify(cart));
+            updateUI();
+            showToast(`Đã thêm ${name} vào giỏ hàng!`);
+        }
+
+        function openCart() {
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = ''; // Xóa dữ liệu cũ
+            let total = 0;
+
+            if(cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#888;">Giỏ hàng của bạn đang trống.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    container.innerHTML += `
+                        <div class="cart-item">
+                            <span>${item.name}</span>
+                            <span>${formatMoney(item.price)} đ <button onclick="removeItem(${index})" style="margin-left:10px; color:red; border:none; background:none; cursor:pointer;">X</button></span>
+                        </div>
+                    `;
+                });
+            }
+
+            document.getElementById('cart-total-price').innerText = formatMoney(total);
+            document.getElementById('cart-modal').style.display = 'flex';
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('venus_cart', JSON.stringify(cart));
+            openCart(); // Tải lại giao diện giỏ hàng
+            updateUI();
+        }
+
+        // --- LUỒNG 3: THANH TOÁN ---
+        function checkout() {
+            if(!currentUser) {
+                alert("Vui lòng đăng nhập trước khi thanh toán!");
+                closeCart();
+                document.getElementById('auth-box').scrollIntoView({behavior: 'smooth'});
+                return;
+            }
+
+            if(cart.length === 0) {
+                alert("Bạn chưa có sản phẩm nào để thanh toán.");
+                return;
+            }
+
+            // Thực hiện mô phỏng thanh toán
+            const totalItems = cart.length;
+            cart = []; // Làm trống giỏ hàng sau khi thanh toán
+            localStorage.removeItem('venus_cart');
+            updateUI();
+            closeCart();
+            
+            showToast(`Thanh toán thành công ${totalItems} sản phẩm. Đơn hàng đang được xử lý!`);
+        }
+    </script>
 </body>
 </html>
