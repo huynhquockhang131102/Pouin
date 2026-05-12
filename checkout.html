@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - VÉNUS</title>
+    <style>
+        /* TỔNG THỂ & MÀU SẮC */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        /* HEADER */
+        header { 
+            background-color: #FF69B4; 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+        }
+        .logo { 
+            color: white; 
+            font-size: 28px; 
+            font-weight: 900; 
+            text-decoration: none; 
+            letter-spacing: 2px;
+        }
+        .back-home {
+            background-color: white;
+            color: #FF69B4;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-home:hover {
+            background-color: #FFE4E1;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* TIÊU ĐỀ */
+        h1 {
+            text-align: center;
+            color: #FF1493;
+            margin-bottom: 40px;
+            font-size: 36px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.1);
+        }
+
+        /* GRID LAYOUT */
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* CARD STYLE */
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.1);
+        }
+
+        .card h2 {
+            color: #FF1493;
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-bottom: 2px solid #FFE4E1;
+            padding-bottom: 10px;
+        }
+
+        /* GIỎ HÀNG */
+        .cart-section {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            flex: 1;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .item-price {
+            color: #FF1493;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .item-qty {
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .btn-remove-item {
+            background: none;
+            border: none;
+            color: #d32f2f;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 0 5px;
+            transition: 0.3s;
+        }
+
+        .btn-remove-item:hover {
+            color: #ff6b6b;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .empty-message a {
+            color: #FF69B4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* TÓMLƯỢT ĐƠN */
+        .order-summary {
+            background: #FFF8F0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .summary-row.total {
+            font-weight: bold;
+            color: #FF1493;
+            font-size: 20px;
+            border-top: 2px solid #FFE4E1;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        /* FORM THANH TOÁN */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #FFC0CB;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FF69B4;
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* NÚT HÀNH ĐỘNG */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: #FF1493;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF69B4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .btn-primary:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* THÔNG BÁO */
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert.error {
+            background: #ffebee;
+            color: #d32f2f;
+            border: 1px solid #d32f2f;
+            display: block;
+        }
+
+        .alert.success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #2e7d32;
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #FFE4E1;
+            border-top: 4px solid #FF69B4;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <a href="index.html" class="logo">VÉNUS</a>
+        <a href="index.html" class="back-home">← Quay lại cửa hàng</a>
+    </header>
+
+    <!-- CONTAINER CHÍNH -->
+    <div class="container">
+        <h1>🛒 Thanh Toán</h1>
+
+        <div class="checkout-grid">
+            <!-- CỘT TRÁI: GIỎ HÀNG & FORM -->
+            <div>
+                <!-- GIỎ HÀNG -->
+                <div class="card">
+                    <h2>Sản Phẩm Của Bạn</h2>
+                    <div id="cart-items" class="cart-section">
+                        <div class="empty-message">
+                            Giỏ hàng trống. <a href="index.html">Tiếp tục mua sắm</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORM THANH TOÁN -->
+                <div class="card" style="margin-top: 30px;">
+                    <h2>Thông Tin Thanh Toán</h2>
+                    <form id="checkout-form" onsubmit="processPayment(event)">
+                        <div class="form-group">
+                            <label>Họ và Tên *</label>
+                            <input type="text" id="fullname" placeholder="Nhập họ và tên" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="email" placeholder="Nhập email của bạn" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Số Điện Thoại *</label>
+                            <input type="tel" id="phone" placeholder="Nhập số điện thoại" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Địa Chỉ Giao Hàng *</label>
+                            <input type="text" id="address" placeholder="Nhập địa chỉ" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tỉnh/Thành Phố *</label>
+                                <input type="text" id="city" placeholder="Ví dụ: TP HCM" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Mã Bưu Điện *</label>
+                                <input type="text" id="zip" placeholder="Ví dụ: 700000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phương Thức Thanh Toán *</label>
+                            <select id="payment-method" required>
+                                <option value="">-- Chọn phương thức --</option>
+                                <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+                                <option value="transfer">Chuyển khoản ngân hàng</option>
+                                <option value="card">Thẻ tín dụng / Ghi nợ</option>
+                                <option value="ewallet">Ví điện tử</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ghi Chú Đơn Hàng (Tùy Chọn)</label>
+                            <input type="text" id="notes" placeholder="Nhập ghi chú nếu có...">
+                        </div>
+
+                        <div id="error-message" class="alert error"></div>
+
+                        <div class="action-buttons">
+                            <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">Tiếp Tục Mua</button>
+                            <button type="submit" class="btn btn-primary" id="submit-btn">Đặt Hàng Ngay</button>
+                        </div>
+
+                        <div class="loading" id="loading">
+                            <div class="spinner"></div>
+                            <p>Đang xử lý thanh toán...</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- CỘT PHẢI: TÓM LƯỢT ĐƠN -->
+            <div>
+                <div class="card">
+                    <h2>Tóm Lượt Đơn Hàng</h2>
+                    <div class="order-summary">
+                        <div class="summary-row">
+                            <span>Số Sản Phẩm:</span>
+                            <span id="total-items">0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tổng Tiền Hàng:</span>
+                            <span id="subtotal">0 đ</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Phí Vận Chuyển:</span>
+                            <span id="shipping">Miễn phí</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Thuế (0%):</span>
+                            <span id="tax">0 đ</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>TỔNG CỘNG:</span>
+                            <span id="total-price">0 đ</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; padding: 15px; background: #FFF0F5; border-radius: 8px;">
+                        <p style="font-size: 13px; color: #888; margin: 0;">
+                            ✓ Miễn phí vận chuyển cho đơn hàng<br>
+                            ✓ Đóng gói an toàn & chuyên nghiệp<br>
+                            ✓ Bảo vệ quyền lợi người mua<br>
+                            ✓ Hỗ trợ 24/7
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Lấy dữ liệu từ localStorage
+        let cart = JSON.parse(localStorage.getItem('venus_cart')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('venus_currentUser')) || null;
+
+        // Khởi tạo trang
+        initCheckout();
+
+        function initCheckout() {
+            // Nếu giỏ hàng trống, hiển thị thông báo
+            if (cart.length === 0) {
+                document.getElementById('cart-items').innerHTML = `
+                    <div class="empty-message">
+                        Giỏ hàng trống. <a href="index.html">Tiếp tục mua sắm</a>
+                    </div>
+                `;
+                document.getElementById('checkout-form').style.display = 'none';
+                return;
+            }
+
+            // Hiển thị các sản phẩm
+            displayCartItems();
+
+            // Cập nhật tóm lượt đơn
+            updateOrderSummary();
+
+            // Điền sẵn tên người dùng nếu đã đăng nhập
+            if (currentUser) {
+                document.getElementById('fullname').value = currentUser.name;
+            }
+        }
+
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <div>
+                            <div class="item-name">${item.name}</div>
+                        </div>
+                        <div class="item-price">${formatMoney(item.price)} đ</div>
+                        <button type="button" class="btn-remove-item" onclick="removeFromCart(${index})">✕</button>
+                    </div>
+                `;
+            });
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('venus_cart', JSON.stringify(cart));
+            initCheckout();
+        }
+
+        function updateOrderSummary() {
+            const totalItems = cart.length;
+            const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+            const shipping = 0; // Miễn phí vận chuyển
+            const tax = 0;
+            const total = subtotal + shipping + tax;
+
+            document.getElementById('total-items').innerText = totalItems;
+            document.getElementById('subtotal').innerText = formatMoney(subtotal) + ' đ';
+            document.getElementById('shipping').innerText = 'Miễn phí';
+            document.getElementById('tax').innerText = formatMoney(tax) + ' đ';
+            document.getElementById('total-price').innerText = formatMoney(total) + ' đ';
+        }
+
+        function formatMoney(amount) {
+            return amount.toLocaleString('vi-VN');
+        }
+
+        function processPayment(e) {
+            e.preventDefault();
+
+            // Kiểm tra giỏ hàng
+            if (cart.length === 0) {
+                showError('Giỏ hàng trống. Vui lòng thêm sản phẩm!');
+                return;
+            }
+
+            // Lấy dữ liệu form
+            const fullname = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const zip = document.getElementById('zip').value.trim();
+            const paymentMethod = document.getElementById('payment-method').value;
+
+            // Kiểm tra dữ liệu
+            if (!fullname || !email || !phone || !address || !city || !zip || !paymentMethod) {
+                showError('Vui lòng điền đầy đủ thông tin bắt buộc (*)');
+                return;
+            }
+
+            // Hiển thị loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('submit-btn').disabled = true;
+
+            // Mô phỏng xử lý thanh toán (2 giây)
+            setTimeout(() => {
+                // Lưu đơn hàng
+                const order = {
+                    id: 'ORD-' + Date.now(),
+                    fullname,
+                    email,
+                    phone,
+                    address,
+                    city,
+                    zip,
+                    paymentMethod,
+                    items: cart,
+                    total: cart.reduce((sum, item) => sum + item.price, 0),
+                    date: new Date().toLocaleString('vi-VN'),
+                    status: 'Đang xử lý'
+                };
+
+                // Lưu vào localStorage
+                let orders = JSON.parse(localStorage.getItem('venus_orders')) || [];
+                orders.push(order);
+                localStorage.setItem('venus_orders', JSON.stringify(orders));
+
+                // Làm trống giỏ hàng
+                localStorage.removeItem('venus_cart');
+                cart = [];
+
+                // Ẩn loading
+                document.getElementById('loading').style.display = 'none';
+
+                // Chuyển hướng đến trang thành công
+                alert(`Đặt hàng thành công!\nMã đơn: ${order.id}\n\nBạn sẽ được chuyển hướng đến trang xác nhận.`);
+                window.location.href = 'index.html';
+            }, 2000);
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.innerText = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Tự động kiểm tra khi load trang
+        window.addEventListener('load', () => {
+            if (cart.length === 0) {
+                document.getElementById('checkout-form').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
