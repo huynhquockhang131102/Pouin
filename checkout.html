@@ -9,19 +9,19 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Segoe UI', Tahoma, sans-serif; 
-            background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+            background: linear-gradient(135deg, #f5e6e6 0%, #ffffff 100%);
             color: #333;
             min-height: 100vh;
         }
         
         /* HEADER */
         header { 
-            background-color: #FF69B4; 
+            background-color: #d97e7e; 
             padding: 20px 40px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center;
-            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+            box-shadow: 0 4px 10px rgba(217, 126, 126, 0.2);
         }
         .logo { 
             color: white; 
@@ -32,7 +32,7 @@
         }
         .back-home {
             background-color: white;
-            color: #FF69B4;
+            color: #d97e7e;
             border: none;
             padding: 10px 20px;
             border-radius: 20px;
@@ -43,7 +43,7 @@
             display: inline-block;
         }
         .back-home:hover {
-            background-color: #FFE4E1;
+            background-color: #f5e6e6;
         }
 
         /* CONTAINER */
@@ -56,11 +56,11 @@
         /* TIÊU ĐỀ */
         h1 {
             text-align: center;
-            color: #FF1493;
+            color: #c95252;
             margin-bottom: 40px;
             font-size: 36px;
             text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.1);
+            text-shadow: 2px 2px 4px rgba(217, 126, 126, 0.1);
         }
 
         /* GRID LAYOUT */
@@ -75,14 +75,15 @@
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.1);
+            box-shadow: 0 10px 30px rgba(217, 126, 126, 0.1);
+            border: 2px solid #f0e0e0;
         }
 
         .card h2 {
-            color: #FF1493;
+            color: #c95252;
             margin-bottom: 20px;
             font-size: 22px;
-            border-bottom: 2px solid #FFE4E1;
+            border-bottom: 2px solid #f0e0e0;
             padding-bottom: 10px;
         }
 
@@ -110,20 +111,15 @@
         }
 
         .item-price {
-            color: #FF1493;
+            color: #c95252;
             font-weight: bold;
             font-size: 16px;
-        }
-
-        .item-qty {
-            margin: 0 15px;
-            font-weight: 500;
         }
 
         .btn-remove-item {
             background: none;
             border: none;
-            color: #d32f2f;
+            color: #c95252;
             cursor: pointer;
             font-weight: bold;
             font-size: 18px;
@@ -132,7 +128,7 @@
         }
 
         .btn-remove-item:hover {
-            color: #ff6b6b;
+            color: #8b3a3a;
         }
 
         .empty-message {
@@ -143,17 +139,18 @@
         }
 
         .empty-message a {
-            color: #FF69B4;
+            color: #d97e7e;
             text-decoration: none;
             font-weight: bold;
         }
 
         /* TÓMLƯỢT ĐƠN */
         .order-summary {
-            background: #FFF8F0;
+            background: #faf6f6;
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
+            border: 2px solid #f0e0e0;
         }
 
         .summary-row {
@@ -165,9 +162,9 @@
 
         .summary-row.total {
             font-weight: bold;
-            color: #FF1493;
+            color: #c95252;
             font-size: 20px;
-            border-top: 2px solid #FFE4E1;
+            border-top: 2px solid #f0e0e0;
             padding-top: 10px;
             margin-top: 10px;
         }
@@ -188,7 +185,7 @@
         .form-group select {
             width: 100%;
             padding: 12px;
-            border: 2px solid #FFC0CB;
+            border: 2px solid #f0e0e0;
             border-radius: 8px;
             font-size: 14px;
             transition: 0.3s;
@@ -197,8 +194,8 @@
         .form-group input:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #FF69B4;
-            box-shadow: 0 0 8px rgba(255, 105, 180, 0.2);
+            border-color: #d97e7e;
+            box-shadow: 0 0 8px rgba(217, 126, 126, 0.2);
         }
 
         .form-row {
@@ -227,14 +224,14 @@
         }
 
         .btn-primary {
-            background-color: #FF1493;
+            background-color: #c95252;
             color: white;
         }
 
         .btn-primary:hover {
-            background-color: #FF69B4;
+            background-color: #d97e7e;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 5px 15px rgba(217, 126, 126, 0.3);
         }
 
         .btn-primary:disabled {
@@ -243,12 +240,12 @@
         }
 
         .btn-secondary {
-            background-color: #f0f0f0;
+            background-color: #f0e0e0;
             color: #333;
         }
 
         .btn-secondary:hover {
-            background-color: #e0e0e0;
+            background-color: #e8d5d5;
         }
 
         /* THÔNG BÁO */
@@ -261,8 +258,8 @@
 
         .alert.error {
             background: #ffebee;
-            color: #d32f2f;
-            border: 1px solid #d32f2f;
+            color: #c95252;
+            border: 1px solid #c95252;
             display: block;
         }
 
@@ -309,8 +306,8 @@
         }
 
         .spinner {
-            border: 4px solid #FFE4E1;
-            border-top: 4px solid #FF69B4;
+            border: 4px solid #f0e0e0;
+            border-top: 4px solid #d97e7e;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -442,7 +439,7 @@
                         </div>
                     </div>
 
-                    <div style="margin-top: 20px; padding: 15px; background: #FFF0F5; border-radius: 8px;">
+                    <div style="margin-top: 20px; padding: 15px; background: #faf6f6; border-radius: 8px; border: 2px solid #f0e0e0;">
                         <p style="font-size: 13px; color: #888; margin: 0;">
                             ✓ Miễn phí vận chuyển cho đơn hàng<br>
                             ✓ Đóng gói an toàn & chuyên nghiệp<br>
@@ -514,7 +511,7 @@
         function updateOrderSummary() {
             const totalItems = cart.length;
             const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
-            const shipping = 0; // Miễn phí vận chuyển
+            const shipping = 0;
             const tax = 0;
             const total = subtotal + shipping + tax;
 
@@ -532,13 +529,11 @@
         function processPayment(e) {
             e.preventDefault();
 
-            // Kiểm tra giỏ hàng
             if (cart.length === 0) {
                 showError('Giỏ hàng trống. Vui lòng thêm sản phẩm!');
                 return;
             }
 
-            // Lấy dữ liệu form
             const fullname = document.getElementById('fullname').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
@@ -547,19 +542,15 @@
             const zip = document.getElementById('zip').value.trim();
             const paymentMethod = document.getElementById('payment-method').value;
 
-            // Kiểm tra dữ liệu
             if (!fullname || !email || !phone || !address || !city || !zip || !paymentMethod) {
                 showError('Vui lòng điền đầy đủ thông tin bắt buộc (*)');
                 return;
             }
 
-            // Hiển thị loading
             document.getElementById('loading').style.display = 'block';
             document.getElementById('submit-btn').disabled = true;
 
-            // Mô phỏng xử lý thanh toán (2 giây)
             setTimeout(() => {
-                // Lưu đơn hàng
                 const order = {
                     id: 'ORD-' + Date.now(),
                     fullname,
@@ -575,19 +566,15 @@
                     status: 'Đang xử lý'
                 };
 
-                // Lưu vào localStorage
                 let orders = JSON.parse(localStorage.getItem('venus_orders')) || [];
                 orders.push(order);
                 localStorage.setItem('venus_orders', JSON.stringify(orders));
 
-                // Làm trống giỏ hàng
                 localStorage.removeItem('venus_cart');
                 cart = [];
 
-                // Ẩn loading
                 document.getElementById('loading').style.display = 'none';
 
-                // Chuyển hướng đến trang thành công
                 alert(`Đặt hàng thành công!\nMã đơn: ${order.id}\n\nBạn sẽ được chuyển hướng đến trang xác nhận.`);
                 window.location.href = 'index.html';
             }, 2000);
@@ -602,7 +589,6 @@
             }, 5000);
         }
 
-        // Tự động kiểm tra khi load trang
         window.addEventListener('load', () => {
             if (cart.length === 0) {
                 document.getElementById('checkout-form').style.display = 'none';
